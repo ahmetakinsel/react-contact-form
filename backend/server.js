@@ -14,3 +14,31 @@ const mailgun = () => {
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.post("api/email", (req, res) => {
+  const { email, subject, message } = req.body;
+  mailgun()
+    .messages()
+    .send(
+      {
+        from: "Ahmet Akinsel <ahmet.akinsel@gmail.com>",
+        to: `${email}`,
+        subject: `${subject}`,
+        html: `<p>${message}</p>`,
+      },
+      (error, body) => {
+        if (error) {
+          console.log(error);
+          res.status(500).send({ message: "Error sending email." });
+        } else {
+          console.log(body);
+          res.send({ message: "Email sent successfully." });
+        }
+      }
+    );
+});
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`serve at http://localhost:${port}`);
+});
