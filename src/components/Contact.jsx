@@ -4,14 +4,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import "./styles.css";
+import { Button, TextField } from "@mui/material";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   padding: 50px;
 `;
-
-const Header = styled.h1``;
 
 const Form = styled.form`
   display: flex;
@@ -23,41 +22,15 @@ const FormFields = styled.div`
   flex-direction: column;
   padding: 5px;
 `;
-
-const FieldWrapper = styled.div``;
-
-const LabelWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  padding: 10px 10px 10px 0px;
+const FormContent = styled.div`
+  flex-direction: column;
 `;
 
-const InputLabel = styled.label`
-  font-size: 18px;
-  font-weight: 500;
+const FieldWrapper = styled.div`
+  padding: 25px;
 `;
 
-const Input = styled.input`
-  width: 550px;
-  height: 35px;
-  border-radius: 5px;
-`;
-
-const Button = styled.button`
-  width: 558px;
-  height: 35px;
-  border-radius: 5px;
-
-  :hover {
-  }
-`;
-
-const TextField = styled.textarea`
-  width: 550px;
-  height: 250px;
-  margin-bottom: 25px;
-  border-radius: 5px;
-`;
+const Header = styled.h1``;
 
 const Contact = () => {
   const form = useRef();
@@ -118,53 +91,65 @@ const Contact = () => {
         <Form ref={form}>
           <FormFields>
             <Header>Contact</Header>
-            <FieldWrapper>
-              <LabelWrapper>
-                <InputLabel>Name</InputLabel>
-              </LabelWrapper>
-              <Input
-                onChange={(e) => setName(e.target.value)}
-                type="text"
-                name="user_name"
-                value={name}
-              />
-            </FieldWrapper>
-            <FieldWrapper>
-              <LabelWrapper>
-                <InputLabel>Subject</InputLabel>
-              </LabelWrapper>
-              <Input
-                onChange={(e) => setSubject(e.target.value)}
-                type="text"
-                name="subject"
-                value={subject}
-              />
-            </FieldWrapper>
-            <FieldWrapper>
-              <LabelWrapper>
-                <InputLabel>Email</InputLabel>
-              </LabelWrapper>
-              <Input
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                name="user_email"
-                value={email}
-              />
-            </FieldWrapper>
-            <FieldWrapper>
-              <LabelWrapper>
-                <InputLabel>Message</InputLabel>
-              </LabelWrapper>
-              <TextField
-                onChange={(e) => setMessage(e.target.value)}
-                name="message"
-                value={message}
-              />
-            </FieldWrapper>
-            <Button type="submit" onClick={sendEmail}>
-              Send Email
-            </Button>
-            <ToastContainer />
+            <FormContent>
+              <FieldWrapper>
+                <TextField
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  name="user_name"
+                  value={name}
+                  label="Name"
+                  variant="filled"
+                  style={{ width: "550px", fontSize: "1px" }}
+                />
+              </FieldWrapper>
+              <FieldWrapper>
+                <TextField
+                  onChange={(e) => setSubject(e.target.value)}
+                  type="text"
+                  name="subject"
+                  value={subject}
+                  label="Subject"
+                  variant="filled"
+                  style={{ width: "550px" }}
+                />
+              </FieldWrapper>
+              <FieldWrapper>
+                <TextField
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  name="user_email"
+                  value={email}
+                  label="Email"
+                  variant="filled"
+                  style={{ width: "550px" }}
+                  autoFocus={false}
+                />
+              </FieldWrapper>
+              <FieldWrapper>
+                <TextField
+                  onChange={(e) => setMessage(e.target.value)}
+                  name="message"
+                  value={message}
+                  label="Message"
+                  variant="filled"
+                  style={{ width: "550px", height: "150px" }}
+                  multiline={true}
+                  rows={5}
+                  defaultValue="Default Value"
+                />
+              </FieldWrapper>
+              <Button
+                variant="outlined"
+                style={{ color: "white", width: "550px", fontWeight: "bold" }}
+                type="submit"
+                onClick={sendEmail}
+              >
+                Send
+              </Button>
+
+              <ToastContainer />
+            </FormContent>
           </FormFields>
         </Form>
       </Container>
