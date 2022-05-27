@@ -3,7 +3,7 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
-import img from "./images/img.jpg";
+import "./styles.css";
 
 const Container = styled.div`
   display: flex;
@@ -11,10 +11,6 @@ const Container = styled.div`
   padding: 50px;
 `;
 
-const ImageWrapper = styled.div`
-  display: flex;
-  padding: 5px;
-`;
 const Header = styled.h1``;
 
 const Form = styled.form`
@@ -44,17 +40,23 @@ const InputLabel = styled.label`
 const Input = styled.input`
   width: 550px;
   height: 35px;
+  border-radius: 5px;
 `;
 
 const Button = styled.button`
   width: 558px;
   height: 35px;
+  border-radius: 5px;
+
+  :hover {
+  }
 `;
 
 const TextField = styled.textarea`
   width: 550px;
   height: 250px;
   margin-bottom: 25px;
+  border-radius: 5px;
 `;
 
 const Contact = () => {
@@ -90,7 +92,7 @@ const Contact = () => {
         process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
-        (result) => {
+        () => {
           toast.success("Your email has been sent", {
             position: "bottom-center",
             autoClose: 5000,
@@ -109,18 +111,10 @@ const Contact = () => {
 
   return (
     <>
+      <div class="animation"></div>
+      <div class="animation animation-2"></div>
+      <div class="animation animation-3"></div>
       <Container>
-        <ImageWrapper>
-          <img
-            src={img}
-            alt="img"
-            style={{
-              width: "615px",
-              height: "100%",
-              borderRadius: "5px",
-            }}
-          />
-        </ImageWrapper>
         <Form ref={form}>
           <FormFields>
             <Header>Contact</Header>
