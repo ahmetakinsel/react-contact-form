@@ -30,7 +30,9 @@ const FieldWrapper = styled.div`
   padding: 25px;
 `;
 
-const Header = styled.h1``;
+const Header = styled.h1`
+  color: #fff;
+`;
 
 const Contact = () => {
   const form = useRef();
@@ -99,7 +101,7 @@ const Contact = () => {
                   name="user_name"
                   value={name}
                   label="Name"
-                  variant="filled"
+                  variant="outlined"
                   style={{ width: "550px", fontSize: "1px" }}
                 />
               </FieldWrapper>
@@ -110,7 +112,7 @@ const Contact = () => {
                   name="subject"
                   value={subject}
                   label="Subject"
-                  variant="filled"
+                  variant="outlined"
                   style={{ width: "550px" }}
                 />
               </FieldWrapper>
@@ -121,7 +123,7 @@ const Contact = () => {
                   name="user_email"
                   value={email}
                   label="Email"
-                  variant="filled"
+                  variant="outlined"
                   style={{ width: "550px" }}
                   autoFocus={false}
                 />
@@ -132,8 +134,8 @@ const Contact = () => {
                   name="message"
                   value={message}
                   label="Message"
-                  variant="filled"
-                  style={{ width: "550px", height: "150px" }}
+                  variant="outlined"
+                  sx={{ width: "550px", height: "150px" }}
                   multiline={true}
                   rows={5}
                   defaultValue="Default Value"
@@ -141,7 +143,7 @@ const Contact = () => {
               </FieldWrapper>
               <Button
                 variant="outlined"
-                style={{ color: "white", width: "550px", fontWeight: "bold" }}
+                style={{ color: "#fff", width: "550px", fontWeight: "bold" }}
                 type="submit"
                 onClick={sendEmail}
               >
