@@ -168,7 +168,7 @@ const Contact = () => {
               />
             </FieldWrapper>
             <Button type="submit" onClick={sendEmail}>
-              Send
+              Send Email
             </Button>
             <ToastContainer />
           </FormFields>
