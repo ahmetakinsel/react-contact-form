@@ -11,7 +11,9 @@ const Container = styled.div`
   padding: 50px;
 `;
 
-const Header = styled.h1``;
+const Header = styled.h1`
+  color: #fff;
+`;
 
 const Form = styled.form`
   display: flex;
@@ -29,18 +31,24 @@ const FieldWrapper = styled.div``;
 const LabelWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 10px 10px 10px 0px;
+  padding: 25px 10px 10px 0px;
 `;
 
 const InputLabel = styled.label`
   font-size: 18px;
   font-weight: 500;
+  color: #fff;
 `;
 
 const Input = styled.input`
   width: 550px;
   height: 35px;
-  border-radius: 5px;
+  //border-radius: 5px;
+  background-color: transparent;
+  border: 0.1px solid #fff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 `;
 
 const Button = styled.button`
@@ -54,9 +62,14 @@ const Button = styled.button`
 
 const TextField = styled.textarea`
   width: 550px;
-  height: 250px;
+  height: 150px;
   margin-bottom: 25px;
-  border-radius: 5px;
+  //border-radius: 5px;
+  background-color: transparent;
+  border: 0.1px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 `;
 
 const Contact = () => {
