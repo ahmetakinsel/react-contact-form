@@ -4,7 +4,29 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import "./styles.css";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  textField: {
+    width: "550px",
+  },
+  textArea: {
+    width: "550px",
+    height: "150px",
+    borderColor: "1px solid #fff",
+  },
+  header: {
+    color: "#fff",
+  },
+  btn: {
+    fontSize: 50,
+    backgroundColor: "violet",
+    "&:hover": {
+      backgroundColor: "red",
+    },
+  },
+});
 
 const Container = styled.div`
   display: flex;
@@ -30,20 +52,29 @@ const FieldWrapper = styled.div`
   padding: 25px;
 `;
 
-const Header = styled.h1`
-  color: #fff;
-`;
-
 const Contact = () => {
   const form = useRef();
+  const classes = useStyles();
 
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [subjectError, setSubjectError] = useState(false);
+  const [messageError, setMessageError] = useState(false);
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (email || name || message || subject === "") {
+      setNameError(true);
+      setEmailError(true);
+      setSubjectError(true);
+      setMessageError(true);
+    }
 
     if (!email || !name || !message || !subject) {
       return toast.warning("Please fill the inputs", {
@@ -92,7 +123,9 @@ const Contact = () => {
       <Container>
         <Form ref={form}>
           <FormFields>
-            <Header>Contact</Header>
+            <Typography variant="h4" gutterBottom className={classes.header}>
+              Contact
+            </Typography>
             <FormContent>
               <FieldWrapper>
                 <TextField
@@ -100,9 +133,11 @@ const Contact = () => {
                   type="text"
                   name="user_name"
                   value={name}
-                  label="Name"
                   variant="outlined"
-                  style={{ width: "550px", fontSize: "1px" }}
+                  label="Name"
+                  required
+                  className={classes.textField}
+                  error={nameError}
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -113,7 +148,9 @@ const Contact = () => {
                   value={subject}
                   label="Subject"
                   variant="outlined"
-                  style={{ width: "550px" }}
+                  required
+                  className={classes.textField}
+                  error={subjectError}
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -124,8 +161,9 @@ const Contact = () => {
                   value={email}
                   label="Email"
                   variant="outlined"
-                  style={{ width: "550px" }}
-                  autoFocus={false}
+                  required
+                  className={classes.textField}
+                  error={emailError}
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -135,15 +173,21 @@ const Contact = () => {
                   value={message}
                   label="Message"
                   variant="outlined"
-                  sx={{ width: "550px", height: "150px" }}
                   multiline={true}
                   rows={5}
                   defaultValue="Default Value"
+                  className={classes.textArea}
+                  error={messageError}
                 />
               </FieldWrapper>
               <Button
                 variant="outlined"
-                style={{ color: "#fff", width: "550px", fontWeight: "bold" }}
+                sx={{
+                  color: "#fff",
+                  width: "550px",
+                  fontWeight: "bold",
+                  borderColor: "#fff",
+                }}
                 type="submit"
                 onClick={sendEmail}
               >
