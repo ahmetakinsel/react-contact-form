@@ -1,28 +1,16 @@
 import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, TextField, Typography, Grid } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles.css";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-`;
-
 const Form = styled.form`
   display: flex;
 `;
 
-const FormFields = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 5px;
-`;
 const FormContent = styled.div`
   flex-direction: column;
 `;
@@ -118,9 +106,9 @@ const Contact = () => {
       <div class="animation"></div>
       <div class="animation animation-2"></div>
       <div class="animation animation-3"></div>
-      <Container>
+      <Grid container direction="column" alignItems="center">
         <Form ref={form}>
-          <FormFields>
+          <Grid container direction="column" sx={{ padding: "25px" }}>
             <Typography variant="h4" gutterBottom className={classes.header}>
               Contact
             </Typography>
@@ -196,9 +184,9 @@ const Contact = () => {
 
               <ToastContainer />
             </FormContent>
-          </FormFields>
+          </Grid>
         </Form>
-      </Container>
+      </Grid>
     </>
   );
 };
