@@ -1,32 +1,11 @@
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import styled from "styled-components";
-import "./styles.css";
 import { Button, TextField, Typography } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles({
-  textField: {
-    width: "550px",
-  },
-  textArea: {
-    width: "550px",
-    height: "150px",
-    borderColor: "1px solid #fff",
-  },
-  header: {
-    color: "#fff",
-  },
-  btn: {
-    fontSize: 50,
-    backgroundColor: "violet",
-    "&:hover": {
-      backgroundColor: "red",
-    },
-  },
-});
+import emailjs from "@emailjs/browser";
+import styled from "styled-components";
+import "react-toastify/dist/ReactToastify.css";
+import "./styles.css";
 
 const Container = styled.div`
   display: flex;
@@ -52,6 +31,25 @@ const FieldWrapper = styled.div`
   padding: 25px;
 `;
 
+const useStyles = makeStyles({
+  textField: {
+    width: "550px",
+  },
+  header: {
+    color: "#fff",
+  },
+});
+
+const buttonStyles = {
+  color: "#fff",
+  width: "550px",
+  fontWeight: "bold",
+  borderColor: "#fff",
+  "&:hover": {
+    borderColor: "#000",
+    background: "transparent",
+  },
+};
 const Contact = () => {
   const form = useRef();
   const classes = useStyles();
@@ -79,7 +77,7 @@ const Contact = () => {
     if (!email || !name || !message || !subject) {
       return toast.warning("Please fill the inputs", {
         position: "bottom-center",
-        autoClose: 5000,
+        autoClose: 4000,
       });
     }
 
@@ -101,7 +99,7 @@ const Contact = () => {
         () => {
           toast.success("Your email has been sent", {
             position: "bottom-center",
-            autoClose: 5000,
+            autoClose: 4000,
           });
           clearInputs();
         },
@@ -109,7 +107,7 @@ const Contact = () => {
           console.log(error.text);
           toast.error("Something went wrong please try again", {
             position: "bottom-center",
-            autoClose: 5000,
+            autoClose: 4000,
           });
         }
       );
@@ -133,11 +131,17 @@ const Contact = () => {
                   type="text"
                   name="user_name"
                   value={name}
-                  variant="outlined"
+                  variant="standard"
                   label="Name"
                   required
                   className={classes.textField}
                   error={nameError}
+                  //label styling
+                  sx={{
+                    // border: "1px solid #fff",
+                    // borderRadius: 1,
+                    "& label": { color: "#fff", fontSize: "14px" },
+                  }}
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -169,25 +173,21 @@ const Contact = () => {
               <FieldWrapper>
                 <TextField
                   onChange={(e) => setMessage(e.target.value)}
+                  type="message"
                   name="message"
                   value={message}
                   label="Message"
                   variant="outlined"
-                  multiline={true}
-                  rows={5}
-                  defaultValue="Default Value"
-                  className={classes.textArea}
+                  required
+                  className={classes.textField}
                   error={messageError}
+                  multiline
+                  rows={5}
                 />
               </FieldWrapper>
               <Button
                 variant="outlined"
-                sx={{
-                  color: "#fff",
-                  width: "550px",
-                  fontWeight: "bold",
-                  borderColor: "#fff",
-                }}
+                sx={buttonStyles}
                 type="submit"
                 onClick={sendEmail}
               >
