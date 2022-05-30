@@ -19,6 +19,8 @@ const FieldWrapper = styled.div`
   padding: 25px;
 `;
 
+//className={classes.textField}
+
 const useStyles = makeStyles({
   textField: {
     width: "550px",
@@ -28,6 +30,13 @@ const useStyles = makeStyles({
   },
 });
 
+// sx prop
+// sx={buttonStyles}
+// sx={{ ...textFieldStyle }}
+
+const textFieldStyle = {
+  width: "550px",
+};
 const buttonStyles = {
   color: "#fff",
   width: "550px",
@@ -119,7 +128,7 @@ const Contact = () => {
                   type="text"
                   name="user_name"
                   value={name}
-                  variant="standard"
+                  variant="outlined"
                   label="Name"
                   required
                   className={classes.textField}
@@ -141,7 +150,7 @@ const Contact = () => {
                   label="Subject"
                   variant="outlined"
                   required
-                  className={classes.textField}
+                  sx={{ ...textFieldStyle }}
                   error={subjectError}
                 />
               </FieldWrapper>
@@ -154,7 +163,7 @@ const Contact = () => {
                   label="Email"
                   variant="outlined"
                   required
-                  className={classes.textField}
+                  sx={{ ...textFieldStyle }}
                   error={emailError}
                 />
               </FieldWrapper>
