@@ -33,7 +33,6 @@ const useStyles = makeStyles({
   },
 
   header: {
-    color: "#fff",
     textTransform: "uppercase",
   },
 });
@@ -136,7 +135,17 @@ const Contact = () => {
       <Grid container direction="column" alignItems="center">
         <Form ref={form}>
           <Grid container direction="column" sx={{ padding: "25px" }}>
-            <Typography variant="h4" className={classes.header} gutterBottom>
+            <Typography
+              variant="h4"
+              gutterBottom
+              className={classes.header}
+              sx={{
+                color: "#fff",
+                "& .MuiTyphography-root": {
+                  color: "#fff",
+                },
+              }}
+            >
               Contact
             </Typography>
             <FormContent>
@@ -163,19 +172,13 @@ const Contact = () => {
                   variant="outlined"
                   required
                   className={classes.textField}
+                  error={subjectError}
                   sx={{
                     color: "#fff",
-                    "& .MuiOutlinedInput-notchedOutline": {
-                      borderRadius: "5px",
-                      borderColor: "#fff",
+                    "& .MuiInputLabel-root": {
+                      color: "#fff",
                     },
-                    "& .Mui-focused": {
-                      borderRadius: "10px",
-                      borderColor: "#fff",
-                    },
-                    "& label": { color: "#fff", fontSize: "16px" },
                   }}
-                  error={subjectError}
                 />
               </FieldWrapper>
               <FieldWrapper>
