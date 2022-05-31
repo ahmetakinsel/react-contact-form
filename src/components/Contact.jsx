@@ -24,6 +24,12 @@ const FieldWrapper = styled.div`
 const useStyles = makeStyles({
   textField: {
     width: "550px",
+    color: "#fff",
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderRadius: "10px",
+      borderColor: "white",
+    },
+    "& label": { color: "#fff", fontSize: "16px" },
   },
   header: {
     color: "#fff",
@@ -34,9 +40,19 @@ const useStyles = makeStyles({
 // sx={buttonStyles}
 // sx={{ ...textFieldStyle }}
 
-const textFieldStyle = {
-  width: "550px",
-};
+/*
+
+selecting specific input and label element
+     sx={{
+        color: "#fff",
+         "& .MuiOutlinedInput-notchedOutline": {
+              borderRadius: "10px",
+              borderColor: "white",
+          },
+          "& label": { color: "#fff", fontSize: "16px" },
+       }}
+*/
+
 const buttonStyles = {
   color: "#fff",
   width: "550px",
@@ -133,12 +149,6 @@ const Contact = () => {
                   required
                   className={classes.textField}
                   error={nameError}
-                  //label styling
-                  sx={{
-                    // border: "1px solid #fff",
-                    // borderRadius: 1,
-                    "& label": { color: "#fff", fontSize: "14px" },
-                  }}
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -150,7 +160,19 @@ const Contact = () => {
                   label="Subject"
                   variant="outlined"
                   required
-                  sx={{ ...textFieldStyle }}
+                  className={classes.textField}
+                  sx={{
+                    color: "#fff",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderRadius: "10px",
+                      borderColor: "white",
+                    },
+                    "& . MuiInputBase-root ": {
+                      borderRadius: "10px",
+                      borderColor: "white",
+                    },
+                    "& label": { color: "#fff", fontSize: "16px" },
+                  }}
                   error={subjectError}
                 />
               </FieldWrapper>
@@ -163,7 +185,7 @@ const Contact = () => {
                   label="Email"
                   variant="outlined"
                   required
-                  sx={{ ...textFieldStyle }}
+                  className={classes.textField}
                   error={emailError}
                 />
               </FieldWrapper>
