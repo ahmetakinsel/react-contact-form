@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   },
 });
 
-// sx prop
+// sx prop usage
 // sx={buttonStyles}
 // sx={{ ...textFieldStyle }}
 
