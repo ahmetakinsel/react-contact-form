@@ -26,32 +26,33 @@ const useStyles = makeStyles({
     width: "550px",
     color: "#fff",
     "& .MuiOutlinedInput-notchedOutline": {
-      borderRadius: "10px",
-      borderColor: "white",
+      borderRadius: "5px",
+      borderColor: "#fff",
     },
     "& label": { color: "#fff", fontSize: "16px" },
   },
+
   header: {
     color: "#fff",
+    textTransform: "uppercase",
   },
 });
 
 // sx prop usage
-// sx={buttonStyles}
-// sx={{ ...textFieldStyle }}
-
 /*
-
 selecting specific input and label element
      sx={{
         color: "#fff",
          "& .MuiOutlinedInput-notchedOutline": {
               borderRadius: "10px",
-              borderColor: "white",
+              borderColor: "#fff",
           },
           "& label": { color: "#fff", fontSize: "16px" },
        }}
 */
+
+// sx={{ ...textFieldStyle }}
+// sx={buttonStyles}
 
 const buttonStyles = {
   color: "#fff",
@@ -63,6 +64,7 @@ const buttonStyles = {
     background: "transparent",
   },
 };
+
 const Contact = () => {
   const form = useRef();
   const classes = useStyles();
@@ -134,7 +136,7 @@ const Contact = () => {
       <Grid container direction="column" alignItems="center">
         <Form ref={form}>
           <Grid container direction="column" sx={{ padding: "25px" }}>
-            <Typography variant="h4" gutterBottom className={classes.header}>
+            <Typography variant="h4" className={classes.header} gutterBottom>
               Contact
             </Typography>
             <FormContent>
@@ -164,12 +166,12 @@ const Contact = () => {
                   sx={{
                     color: "#fff",
                     "& .MuiOutlinedInput-notchedOutline": {
-                      borderRadius: "10px",
-                      borderColor: "white",
+                      borderRadius: "5px",
+                      borderColor: "#fff",
                     },
-                    "& . MuiInputBase-root ": {
+                    "& .Mui-focused": {
                       borderRadius: "10px",
-                      borderColor: "white",
+                      borderColor: "#fff",
                     },
                     "& label": { color: "#fff", fontSize: "16px" },
                   }}
