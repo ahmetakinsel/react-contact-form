@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     "& .MuiOutlinedInput-root": {
       //clicked (focused) state
       "&.Mui-focused fieldset": {
-        borderColor: "#fff",
+        borderColor: "green",
       },
     },
     //default border
@@ -40,6 +40,14 @@ const useStyles = makeStyles({
     "& .MuiInputLabel-animated": { color: "#fff", fontSize: "15px" },
     //herperText
     "& .MuiFormHelperText-root": { color: "#fff" },
+    //hover
+    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "red",
+    },
+    //label focused
+    "& .MuiInputLabel-outlined.Mui-focused": {
+      color: "purple",
+    },
   },
 
   header: {
@@ -66,11 +74,13 @@ selecting specific input and label element
 const buttonStyles = {
   color: "#fff",
   width: "550px",
+  height: "45px",
+  fontSize: "16px",
   fontWeight: "bold",
   borderColor: "#fff",
   "&:hover": {
     borderColor: "red",
-    background: "transparent",
+    background: "green",
   },
 };
 
