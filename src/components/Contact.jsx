@@ -205,7 +205,7 @@ const Contact = () => {
                   variant="outlined"
                   required
                   className={classes.textField}
-                  error={emailError ? "message" : ""}
+                  error={emailError}
                   helperText="example@example.com"
                 />
               </FieldWrapper>
