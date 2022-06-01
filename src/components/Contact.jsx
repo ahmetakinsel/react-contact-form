@@ -24,12 +24,22 @@ const FieldWrapper = styled.div`
 const useStyles = makeStyles({
   textField: {
     width: "550px",
-    color: "#fff",
+    color: "red",
+    "& .MuiOutlinedInput-root": {
+      //clicked (focused) state
+      "&.Mui-focused fieldset": {
+        borderColor: "#fff",
+      },
+    },
+    //default border
     "& .MuiOutlinedInput-notchedOutline": {
       borderRadius: "5px",
       borderColor: "#fff",
     },
-    "& label": { color: "#fff", fontSize: "16px" },
+    //label
+    "& .MuiInputLabel-animated": { color: "#fff", fontSize: "15px" },
+    //herperText
+    "& .MuiFormHelperText-root": { color: "#fff" },
   },
 
   header: {
@@ -59,7 +69,7 @@ const buttonStyles = {
   fontWeight: "bold",
   borderColor: "#fff",
   "&:hover": {
-    borderColor: "#000",
+    borderColor: "red",
     background: "transparent",
   },
 };
@@ -173,12 +183,6 @@ const Contact = () => {
                   required
                   className={classes.textField}
                   error={subjectError}
-                  sx={{
-                    color: "#fff",
-                    "& .MuiInputLabel-root": {
-                      color: "#fff",
-                    },
-                  }}
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -191,7 +195,8 @@ const Contact = () => {
                   variant="outlined"
                   required
                   className={classes.textField}
-                  error={emailError}
+                  error={emailError ? "message" : ""}
+                  helperText="example@example.com"
                 />
               </FieldWrapper>
               <FieldWrapper>
@@ -217,7 +222,6 @@ const Contact = () => {
               >
                 Send
               </Button>
-
               <ToastContainer />
             </FormContent>
           </Grid>
