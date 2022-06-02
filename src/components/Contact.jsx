@@ -28,13 +28,13 @@ const useStyles = makeStyles({
     "& .MuiOutlinedInput-root": {
       //clicked (focused) state
       "&.Mui-focused fieldset": {
-        borderColor: "green",
+        borderColor: "#4880EC",
       },
     },
     //default border
     "& .MuiOutlinedInput-notchedOutline": {
       borderRadius: "5px",
-      borderColor: "#fff",
+      borderColor: "#ccddff",
     },
     //label
     "& .MuiInputLabel-animated": { color: "#fff", fontSize: "15px" },
@@ -42,16 +42,17 @@ const useStyles = makeStyles({
     "& .MuiFormHelperText-root": { color: "#fff" },
     //hover
     "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "red",
+      borderColor: "#fff",
     },
     //label focused
     "& .MuiInputLabel-outlined.Mui-focused": {
-      color: "purple",
+      color: "#fff",
     },
   },
 
   header: {
     textTransform: "uppercase",
+    fontWeight: "600",
   },
 });
 
@@ -75,12 +76,13 @@ const buttonStyles = {
   color: "#fff",
   width: "550px",
   height: "45px",
-  fontSize: "16px",
-  fontWeight: "bold",
-  borderColor: "#fff",
+  fontSize: "18px",
+  fontWeight: "600",
+  borderColor: "#4880EC,",
+  backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
   "&:hover": {
-    borderColor: "red",
-    background: "green",
+    borderColor: "#fff",
+    backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
   },
 };
 
