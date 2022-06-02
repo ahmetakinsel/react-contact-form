@@ -24,11 +24,13 @@ const FieldWrapper = styled.div`
 const useStyles = makeStyles({
   textField: {
     width: "550px",
-    color: "red",
+    color: "#ccddff",
+    fontFamily: "Montserrat",
+
     "& .MuiOutlinedInput-root": {
       //clicked (focused) state
       "&.Mui-focused fieldset": {
-        borderColor: "#4880EC",
+        borderColor: "#fff",
       },
     },
     //default border
@@ -37,9 +39,13 @@ const useStyles = makeStyles({
       borderColor: "#ccddff",
     },
     //label
-    "& .MuiInputLabel-animated": { color: "#fff", fontSize: "15px" },
+    "& .MuiInputLabel-animated": {
+      color: "#fff",
+      fontSize: "15px",
+      fontFamily: "Montserrat",
+    },
     //herperText
-    "& .MuiFormHelperText-root": { color: "#fff" },
+    "& .MuiFormHelperText-root": { color: "#ccddff" },
     //hover
     "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "#fff",
@@ -52,7 +58,8 @@ const useStyles = makeStyles({
 
   header: {
     textTransform: "uppercase",
-    fontWeight: "600",
+    fontWeight: "400",
+    fontFamily: "Montserrat",
   },
 });
 
@@ -73,16 +80,16 @@ selecting specific input and label element
 // sx={buttonStyles}
 
 const buttonStyles = {
-  color: "#fff",
+  color: "#ccddff",
   width: "550px",
   height: "45px",
-  fontSize: "18px",
-  fontWeight: "600",
-  borderColor: "#4880EC,",
-  backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
+  fontSize: "20px",
+  fontWeight: "500",
+  borderColor: "#fff,",
+  fontFamily: "Montserrat",
+  backgroundImage: "linear-gradient(to right, #3b7bfa, #05bace)",
   "&:hover": {
     borderColor: "#fff",
-    backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)",
   },
 };
 
@@ -165,6 +172,8 @@ const Contact = () => {
                 color: "#fff",
                 "& .MuiTyphography-root": {
                   color: "#fff",
+                  fontFamily: "Montserrat",
+                  fontWeight: "400",
                 },
               }}
             >
