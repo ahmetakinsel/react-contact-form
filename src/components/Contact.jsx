@@ -26,7 +26,7 @@ const FieldWrapper = styled.div`
 
 const useStyles = makeStyles({
   textField: {
-    width: "550px",
+    width: "450px",
     color: "#ccddff",
     fontFamily: "Montserrat",
     letterSpacing: "-0.2px",
@@ -85,17 +85,18 @@ selecting specific input and label element
 
 const buttonStyles = {
   color: "#ccddff",
-  width: "230px",
-  height: "45px",
+  width: "450px",
+  height: "40px",
   fontSize: "20px",
-  fontWeight: "500",
-  borderRadius: "5px",
-  borderColor: "#fff,",
+  fontWeight: "800",
+  borderRadius: "49px",
   fontFamily: "Montserrat",
-  letterSpacing: "-0.2px",
-  backgroundImage: "linear-gradient(to right, #3b7bfa, #05bace)",
+  letterSpacing: "4px",
+  backgroundColor: "#019CAD",
+  marginTop: "20px",
+
   "&:hover": {
-    borderColor: "#fff",
+    backgroundColor: " #05bace",
   },
 };
 
@@ -169,15 +170,21 @@ const Contact = () => {
       <div class="animation animation-3"></div>
       <Grid container direction="column" alignItems="center">
         <Form ref={form}>
-          <Grid container direction="column" sx={{ padding: "25px" }}>
+          <Grid
+            container
+            direction="column"
+            sx={{ padding: "20px", marginTop: "20px" }}
+          >
             <Typography
               variant="h4"
               gutterBottom
               className={classes.header}
               sx={{
-                color: "#fff",
+                color: "rgb(0,105,148) ",
                 fontFamily: "Montserrat",
-                fontWeight: "400",
+                fontWeight: "500",
+                fontSize: "42px",
+                letterSpacing: "6px",
               }}
             >
               Contact
