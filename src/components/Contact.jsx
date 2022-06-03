@@ -29,6 +29,7 @@ const useStyles = makeStyles({
     width: "550px",
     color: "#ccddff",
     fontFamily: "Montserrat",
+    letterSpacing: "-0.2px",
 
     "& .MuiOutlinedInput-root": {
       //clicked (focused) state
@@ -84,12 +85,14 @@ selecting specific input and label element
 
 const buttonStyles = {
   color: "#ccddff",
-  width: "550px",
+  width: "230px",
   height: "45px",
   fontSize: "20px",
   fontWeight: "500",
+  borderRadius: "5px",
   borderColor: "#fff,",
   fontFamily: "Montserrat",
+  letterSpacing: "-0.2px",
   backgroundImage: "linear-gradient(to right, #3b7bfa, #05bace)",
   "&:hover": {
     borderColor: "#fff",
