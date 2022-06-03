@@ -18,6 +18,9 @@ const FormContent = styled.div`
 const FieldWrapper = styled.div`
   padding: 25px;
 `;
+//#016170
+//#009393
+//#00e0c6
 
 //className={classes.textField}
 
@@ -170,11 +173,8 @@ const Contact = () => {
               className={classes.header}
               sx={{
                 color: "#fff",
-                "& .MuiTyphography-root": {
-                  color: "#fff",
-                  fontFamily: "Montserrat",
-                  fontWeight: "400",
-                },
+                fontFamily: "Montserrat",
+                fontWeight: "400",
               }}
             >
               Contact
