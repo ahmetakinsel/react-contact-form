@@ -23,6 +23,7 @@ const FieldWrapper = styled.div`
 //#00e0c6
 
 //className={classes.textField}
+//update .env file with your credentials
 
 const useStyles = makeStyles({
   textField: {
